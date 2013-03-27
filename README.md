@@ -9,14 +9,10 @@ To make use of this strategy, you will need to [register your application](https
 > $ gem install omniauth-gimmebar
 
 > use OmniAuth::Builder do
->   provider :gimmebar, ENV['GIMMEBAR_CLIENT_ID'], ENV['GIMMEBAR_SECRET']
+>   provider :gimmebar, ENV['GIMMEBAR_CLIENT_ID'], ENV['GIMMEBAR_SECRET'], :callback_url => "http://example.com/auth/gimmebar/callback"
 > end
 
-## Ruby
-
-This has been tested with the following versions of the Ruby interpreter:
-
-- Ruby 1.9.3 (MRI)
+Note that the callback URL, whether you specify it or not, *must* match the one registered to your application in Gimmebar. You will get a 500 error if it does not.
 
 ## License
 
