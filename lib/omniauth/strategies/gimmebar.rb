@@ -30,7 +30,7 @@ module OmniAuth
       end
 
       def request_token
-        # We need to get a request token before redirect the user
+        # We need to get a request token before redirecting the user
         response = RestClient.post(
           "https://gimmebar.com/api/v1/auth/token/request",
           :client_id => client.id,
