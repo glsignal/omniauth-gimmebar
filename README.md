@@ -1,6 +1,6 @@
 # OmniAuth Gimmebar
 
-The unofficial OmniAuth strategy for authenticating with Gimmebar as an OAuth2 provider.
+The unofficial OmniAuth strategy for authenticating with Gimmebar's OAuth2 style endpoints.
 
 To make use of this strategy, you will need to [register your application](https://gimmebar.com/apps)
 
