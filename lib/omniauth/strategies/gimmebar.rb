@@ -1,6 +1,6 @@
 require 'omniauth-oauth2'
 require 'rest-client'
-require 'json'
+require 'multi_json'
 
 module OmniAuth
   module Strategies
@@ -37,7 +37,7 @@ module OmniAuth
           :client_secret => client.secret,
           :type => 'app'
         )
-        JSON.parse(response)["request_token"]
+        MultiJson.load(response)["request_token"]
       end
 
       def callback_url
