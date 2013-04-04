@@ -55,7 +55,7 @@ module OmniAuth
 
       def raw_info
         @raw_info ||= access_token.get(
-          "https://gimmebar.com/api/v1/users/#{access_token.params["user_id"]}?_extension[]=authed_user",
+          "https://gimmebar.com/api/v1/user/#{access_token.params["user_id"]}?_extension[]=authed_user",
         ).parsed
       end
     end
