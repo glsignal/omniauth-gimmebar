@@ -18,9 +18,18 @@ module OmniAuth
 
       option :provider_ignores_state, true
 
-      option :uid_field, "user_id"
+      uid { raw_info["id"] }
 
-      uid { request.params[options.uid_field.to_s] }
+      info do
+        {
+          'email' => raw_info["email"],
+          'name' => raw_info["name"]
+        }
+      end
+
+      extra do
+        { :raw_info => raw_info }
+      end
 
       def request_phase
         redirect client.auth_code.authorize_url({
@@ -42,6 +51,12 @@ module OmniAuth
 
       def callback_url
         @callback || super
+      end
+
+      def raw_info
+        @raw_info ||= access_token.get(
+          "https://gimmebar.com/api/v1/users/#{access_token.params["user_id"]}?_extension[]=authed_user",
+        ).parsed
       end
     end
   end
