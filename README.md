@@ -8,6 +8,12 @@ To make use of this strategy, you will need to [register your application](https
 
     $ gem install omniauth-gimmebar
 
+or if using bundler/Gemfile
+
+    gem :omniauth-gimmebar, :require => "omniauth-gimmebar"
+
+Add an initializer
+
     use OmniAuth::Builder do
       provider :gimmebar, ENV['GIMMEBAR_CLIENT_ID'], ENV['GIMMEBAR_SECRET'], :callback_url => "http://example.com/auth/gimmebar/callback"
     end
